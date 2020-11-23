@@ -1,0 +1,51 @@
+<!--pages/first_page/first_page.wxml-->
+<view>
+  <view class="header" >
+    <image src="{{imageUrl}}" mode="heightFix" class="header_image" ></image>
+    <text class="header_text" >{{name}}</text>
+    <image src="{{scannerUrl}}" class="header_scanner" mode="heightFix" bindtap="getscan" ></image>
+  </view>
+  <view class="history" >
+    <view class="history_head">
+      <text class="history_head_text" >历史记录</text>
+    </view>
+    <block wx:for="{{history_list}}">
+    <view class="history_line" >
+      <view class="history_block" wx:for-index="itemIndex" wx:key="itemIndex" ></view>
+      <text class="history_name" >{{item.name}}</text>
+      <text class="history_time" >结束使用时间：{{item.time}}</text>
+      <text class="history_ztai" >{{item.ztai}}</text>
+    </view>
+  </block>
+  </view>
+  <view class="guizi">
+    <text class="guizi_zz" >查看柜子情况</text>
+    <view class="guizi_used" ></view>
+    <text class="guizi_zz" >可以使用</text>
+    <view class="guizi_unuse" ></view>
+    <text class="guizi_zz" >不可使用</text>
+  </view>
+  <!-- 两个picker -->
+  <view class="now_picker" >
+    <!-- <view class="floor_picker">一楼</view> -->
+    <view class="first_picker" >
+    <picker bindchange="bindPickerChange" value="{{floor_index}}" range="{{floor}}">
+    <view class="picker">
+      {{floor[floor_index]}}
+    </view>
+  </picker>
+</view>
+<view class="second_picker" >
+    <picker bindchange="bindPickerChange" value="{{floor_index}}" range="{{floor}}">
+    <view class="picker">
+      {{floor[floor_index]}}<view class="icons icon_like" ></view>
+    </view>
+  </picker>
+</view>
+  </view>
+  <view class="list_guizi" >
+  <block wx:for="{{guizi}}">
+    <view class="{{item.class}}" >{{item.num}}</view>
+  </block>
+  </view>
+</view>

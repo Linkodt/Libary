@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view>
+  <view class="head" >
+    <image mode="heightFix" src="{{imgurl}}" class="head_img" ></image>
+    <text class="head_text" >{{name}}</text>
+    <button class="head_button" open-type="getUserInfo" bindgetuserinfo="knowname" ></button>
+  </view>
+  <block wx:for="{{a_list}}" wx:key="item" wx:for-index="itemIndex" >
+  <view class="line" data-item="{{itemIndex}}" bindtap="navi" >
+    <text class="line_text"   >{{item}}</text>
+  </view>
+</block>
+<view class="line" wx:if="{{isMana}}" bindtap="manager" >
+    <text class="line_text" style="color:#dd5145"   >管理员端</text>
+  </view>
+</view>

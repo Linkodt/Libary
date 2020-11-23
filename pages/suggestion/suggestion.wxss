@@ -1,0 +1,11 @@
+/* pages/suggestion/suggestion.wxss */
+.suggest_textarea{
+  border-style: solid;
+  border-color: rgba(201, 201, 201, 0.575);
+  height: 500rpx;
+  width: 80vw;
+  margin-left: 7vw;
+  border-radius: 25rpx 25rpx 25rpx 25rpx;
+  padding:10rpx;
+  margin-bottom: 20rpx;
+}

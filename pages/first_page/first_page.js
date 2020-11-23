@@ -1,0 +1,189 @@
+// pages/first_page/first_page.js
+const app = getApp()
+const api = require('../../utils/req.js')
+Page({
+  data: {
+    history_list:[
+      {
+        name:"一号柜-1",
+        time:"2020/10/10 18:00",
+        ztai:"正在使用"
+      },
+      {
+        name:"一号柜-1",
+        time:"2020/10/10 18:00",
+        ztai:"正在使用"
+      },
+      {
+        name:"一号柜-1",
+        time:"2020/10/10 18:00",
+        ztai:"正在使用"
+      }
+    ],
+    guizi:[
+      {
+        "class":"list_guizi_list_0",
+        "num":2
+      },
+      {
+        "class":"list_guizi_list_1",
+        "num":1
+      },
+      {
+        "class":"list_guizi_list_0",
+        "num":2
+      },
+      {
+        "class":"list_guizi_list_1",
+        "num":1
+      },
+      {
+        "class":"list_guizi_list_0",
+        "num":2
+      },
+      {
+        "class":"list_guizi_list_1",
+        "num":1
+      },
+      {
+        "class":"list_guizi_list_0",
+        "num":2
+      },
+      {
+        "class":"list_guizi_list_1",
+        "num":1
+      },
+      {
+        "class":"list_guizi_list_0",
+        "num":2
+      },
+      {
+        "class":"list_guizi_list_1",
+        "num":1
+      },
+      {
+        "class":"list_guizi_list_0",
+        "num":2
+      },
+      {
+        "class":"list_guizi_list_1",
+        "num":1
+      },
+      {
+        "class":"list_guizi_list_0",
+        "num":2
+      },
+      {
+        "class":"list_guizi_list_1",
+        "num":1
+      },
+      {
+        "class":"list_guizi_list_0",
+        "num":2
+      },
+      {
+        "class":"list_guizi_list_1",
+        "num":1
+      },
+      {
+        "class":"list_guizi_list_0",
+        "num":2
+      },
+      {
+        "class":"list_guizi_list_1",
+        "num":1
+      },
+      {
+        "class":"list_guizi_list_0",
+        "num":2
+      },
+      {
+        "class":"list_guizi_list_1",
+        "num":1
+      },
+      {
+        "class":"list_guizi_list_0",
+        "num":2
+      },
+      {
+        "class":"list_guizi_list_1",
+        "num":1
+      },
+      {
+        "class":"list_guizi_list_0",
+        "num":2
+      },
+      {
+        "class":"list_guizi_list_1",
+        "num":1
+      },
+      {
+        "class":"list_guizi_list_0",
+        "num":2
+      }
+    ],
+    floor_index: 0,
+    floor: ['一楼', '二楼', '三楼'],
+    name:"可达鸭",
+    imageUrl:"../../image/chat3x.png",
+    scannerUrl:"../../image/scanner_3x.png",
+    second:false
+  },
+  onShow: function (options) {
+    var that = this
+    if(app.globalData.userInfo.nickName){
+      that.setData({
+        name:app.globalData.userInfo.nickName,
+        imageUrl:app.globalData.userInfo.avatarUrl,
+      })
+      that.getnow()
+      that.gethistroy()  // 获取历史记录
+    }else{
+      wx.showModal({
+        // cancelColor: 'cancelColor',
+        showCancel:false,
+        content:"请在个人页面登录",
+        confirmText:"好的",
+        success (res){
+          if(res.confirm){
+            // 成功
+            wx.navigateTo({
+              url: '../mine/index',
+            })
+          }
+        }
+      })
+    }
+  },
+  getnow:function(e){
+    api.request({
+      url:"/use_cabinet",
+      data:{
+        openId:app.globalData.OpenId
+      }
+    }).then(res=>{
+      console.log("获取当前")
+      console.log(res)
+    })
+  },
+  gethistroy:function(e){
+    api.request({
+      url:"/get_history",
+      data:{
+        openId:app.globalData.OpenId
+      }
+    }).then(res=>{
+      console.log("获取历史数据")
+      console.log(res)
+    })
+  },
+  getscan:function(e){
+    wx.scanCode({
+      onlyFromCamera: true,
+      scanType:['qrCode'],
+      success (res) {
+        console.log(res)
+      }
+    })
+  }
+})

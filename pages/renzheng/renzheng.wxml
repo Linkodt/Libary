@@ -1,0 +1,10 @@
+<!--pages/renzheng/renzheng.wxml-->
+<view>
+  <mp-cell prop="账号" title="账号" ext-class="">
+  <input bindinput="formInput_zhao" maxlength="20"  data-field="qq" class="line_input" placeholder="请输入账号"/>
+  </mp-cell>
+  <mp-cell prop="密码" title="密码" ext-class="">
+    <input bindinput="formInput_mima" type="password" maxlength="20" data-field="qq" class="line_input" placeholder="请输入密码"/>
+  </mp-cell>
+  <button type="primary" class="line_button" bindtap="getIn"  >认证</button>
+</view>

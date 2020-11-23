@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/mine/index",
+    "pages/first_page/first_page",
+    "pages/Manager/Manager",
+    "pages/connect/connect",
+    "pages/renzheng/renzheng",
+    "pages/suggestion/suggestion"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "箱约图书馆",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#1BA9DE",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/first_page/first_page",
+        "text": "首页",
+        "iconPath": "/image/home_selected@3x.png",
+        "selectedIconPath": "/image/home@3x.png"
+      },
+      {
+        "pagePath": "pages/connect/connect",
+        "text": "交友",
+        "iconPath": "/image/chat3x_selected.png",
+        "selectedIconPath": "/image/chat3x.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "text": "个人",
+        "iconPath": "/image/user_selected@3x.png",
+        "selectedIconPath": "/image/user@3x.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "useExtendedLib": {
+    "weui": true
+  }
+}
